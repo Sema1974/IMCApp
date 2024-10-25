@@ -22,14 +22,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:gravity="center"
             >
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/female"
+                app:tint="@color/white"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/mujer"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
                 />
         </LinearLayout>
 
@@ -45,6 +52,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/viewMale"
         >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/male"
+                app:tint="@color/white"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/hombre"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                />
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
