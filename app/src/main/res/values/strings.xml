@@ -2,4 +2,6 @@
     <string name="app_name">IMCApp</string>
     <string name="mujer">Mujer</string>
     <string name="hombre">Hombre</string>
+    <string name="altura">ALTURA</string>
+    <string name="_120_cm">120 cm</string>
 </resources>
