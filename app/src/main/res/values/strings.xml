@@ -5,4 +5,6 @@
     <string name="altura">ALTURA</string>
     <string name="_120_cm">120 cm</string>
     <string name="edad">edad</string>
+    <string name="peso">peso</string>
+    <string name="calcular">calcular</string>
 </resources>

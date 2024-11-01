@@ -10,40 +10,67 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.Slider
 
 class ImcCalculatorActivity : AppCompatActivity() {
     private lateinit var viewMale:CardView
     private lateinit var viewFemale:CardView
     private lateinit var tvHeight:TextView
-    private lateinit var rsHeight: Slider
+    private lateinit var rsHeight:Slider
+    private lateinit var viewAge:TextView
+    private lateinit var btnSubtractAge:FloatingActionButton
+    private lateinit var btnAddAge:FloatingActionButton
+    private lateinit var  viewWeight:TextView
+    private lateinit var btnSubtractWeight:FloatingActionButton
+    private lateinit var btnAddWeight:FloatingActionButton
     private  var isMaleSelected = true
+    private  var ageStart = 20
+    private var weightStart = 60
 
 
 
     private fun initUI() {
         setGenderColor()
+        setAge(0)
+        setWeight(0)
     }
 
     private fun initListeners() {
-
-
-        val viewMale: CardView = findViewById(R.id.viewMale)
             viewMale.setOnClickListener{
                 isMaleSelected = true
                 setGenderColor()
             }
-        val viewFemale: CardView = findViewById(R.id.viewFemale)
             viewFemale.setOnClickListener{
                 isMaleSelected = false
                 setGenderColor()
             }
-        rsHeight.addOnChangeListener{_, value,_-> tvHeight.text=DecimalFormat("#.##").format(value) + " cm"}
+            rsHeight.addOnChangeListener{_, value,_-> tvHeight.text=DecimalFormat("#.##").format(value) + " cm"}
+            btnSubtractAge.setOnClickListener(){
+                setAge(-1)
+            }
+            btnAddAge.setOnClickListener(){
+                setAge(1)
+            }
+            btnSubtractWeight.setOnClickListener(){
+                setWeight(-1)
+            }
+            btnAddWeight.setOnClickListener(){
+                setWeight(1)
+            }
     }
 
     private fun setGenderColor() {
         viewMale.setCardBackgroundColor(getBackgroundColor(isMaleSelected))
         viewFemale.setCardBackgroundColor(getBackgroundColor(!isMaleSelected))
+    }
+    private fun setAge(nume: Int){
+        ageStart = ageStart+nume
+        viewAge.text=ageStart.toString()
+    }
+    private fun setWeight(nume: Int){
+        weightStart = weightStart+nume
+        viewWeight.text=weightStart.toString()
     }
 
     private fun getBackgroundColor(isComponentSelected: Boolean): Int {
@@ -60,16 +87,23 @@ class ImcCalculatorActivity : AppCompatActivity() {
         viewMale=findViewById(R.id.viewMale)
         viewFemale=findViewById(R.id.viewFemale)
         rsHeight=findViewById(R.id.rsHeight)
+        viewAge=findViewById(R.id.viewAge)
+        btnSubtractAge=findViewById(R.id.btnSubtractAge)
+        btnAddAge=findViewById(R.id.btnAddAge)
+        viewWeight=findViewById(R.id.viewWeight)
+        btnSubtractWeight=findViewById(R.id.btnSubtractWeight)
+        btnAddWeight=findViewById(R.id.btnAddWeight)
 
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        initComponents()
-        initListeners()
-        initUI()
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_imc_calculator)
+        initComponents()
+        initUI()
+        initListeners()
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
