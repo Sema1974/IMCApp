@@ -66,6 +66,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
                 val intentGA = Intent(this, GreetingActivity::class.java)
                 intentGA.putExtra("EXTRA_NAME", navigate2result(calculateIMC()))
                 startActivity(intentGA)
+
             }
     }
     private fun calculateIMC(): Double{
