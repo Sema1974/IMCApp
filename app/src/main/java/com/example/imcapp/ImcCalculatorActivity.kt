@@ -1,11 +1,13 @@
 package com.example.imcapp
 
+import android.content.Intent
 import android.icu.text.DecimalFormat
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
@@ -14,6 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.Slider
 
 class ImcCalculatorActivity : AppCompatActivity() {
+    private lateinit var btnCalcular:AppCompatButton
     private lateinit var viewMale:CardView
     private lateinit var viewFemale:CardView
     private lateinit var tvHeight:TextView
@@ -27,6 +30,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private  var isMaleSelected = true
     private  var ageStart = 20
     private var weightStart = 60
+    private var resultado = 0.0
 
 
 
@@ -58,6 +62,19 @@ class ImcCalculatorActivity : AppCompatActivity() {
             btnAddWeight.setOnClickListener(){
                 setWeight(1)
             }
+            btnCalcular.setOnClickListener(){
+                val intentGA = Intent(this, GreetingActivity::class.java)
+                intentGA.putExtra("EXTRA_NAME", navigate2result(calculateIMC()))
+                startActivity(intentGA)
+            }
+    }
+    private fun calculateIMC(): Double{
+        val alturaMetro : Double = tvHeight.text.toString().replace(" cm", "").toDouble()/100
+        resultado = (weightStart.toDouble()/(alturaMetro*alturaMetro))
+        return resultado
+    }
+    private fun navigate2result(imc : Double):String{
+        return imc.toString()
     }
 
     private fun setGenderColor() {
@@ -93,6 +110,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
         viewWeight=findViewById(R.id.viewWeight)
         btnSubtractWeight=findViewById(R.id.btnSubtractWeight)
         btnAddWeight=findViewById(R.id.btnAddWeight)
+        btnCalcular=findViewById(R.id.botonCalcular)
 
     }
 
