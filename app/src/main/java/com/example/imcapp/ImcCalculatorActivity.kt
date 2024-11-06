@@ -63,7 +63,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
                 setWeight(1)
             }
             btnCalcular.setOnClickListener(){
-                val intentGA = Intent(this, GreetingActivity::class.java)
+                val intentGA = Intent(this, ImcResultActivity::class.java)
                 intentGA.putExtra("EXTRA_NAME", navigate2result(calculateIMC()))
                 startActivity(intentGA)
 

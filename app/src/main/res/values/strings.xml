@@ -7,4 +7,6 @@
     <string name="edad">edad</string>
     <string name="peso">peso</string>
     <string name="calcular">calcular</string>
+    <string name="Resueltado">Tu Resultado:</string>
+    <string name="recalcular">RE-CALCULAR</string>
 </resources>
