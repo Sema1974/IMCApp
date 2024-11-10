@@ -47,7 +47,7 @@
                 android:id="@+id/resultadofinal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="jffjkkjfjk"
+                android:text=""
                 android:textAllCaps="false"
                 android:textAlignment="center"
                 android:textSize="22sp"

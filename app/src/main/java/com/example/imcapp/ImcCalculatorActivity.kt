@@ -30,6 +30,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private  var isMaleSelected = true
     private  var ageStart = 20
     private var weightStart = 60
+    private var heightStart = 120
     private var resultado = 0.0
 
 
@@ -120,8 +121,8 @@ class ImcCalculatorActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_imc_calculator)
         initComponents()
-        initUI()
         initListeners()
+        initUI()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
